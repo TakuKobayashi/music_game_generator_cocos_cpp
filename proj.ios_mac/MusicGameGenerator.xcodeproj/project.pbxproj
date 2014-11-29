@@ -27,6 +27,7 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		316B7E761A29B17A0064C28A /* adventurers.wav in Resources */ = {isa = PBXBuildFile; fileRef = 316B7E751A29B17A0064C28A /* adventurers.wav */; };
 		316B7E781A29B9C30064C28A /* adventurers.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 316B7E771A29B9C30064C28A /* adventurers.mp3 */; };
+		316B7E8D1A2A0B840064C28A /* TextureBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316B7E8B1A2A0B840064C28A /* TextureBase.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -232,6 +233,8 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		316B7E751A29B17A0064C28A /* adventurers.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = adventurers.wav; sourceTree = "<group>"; };
 		316B7E771A29B9C30064C28A /* adventurers.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adventurers.mp3; sourceTree = "<group>"; };
+		316B7E8B1A2A0B840064C28A /* TextureBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextureBase.cpp; path = ../Classes/TextureBase.cpp; sourceTree = "<group>"; };
+		316B7E8C1A2A0B840064C28A /* TextureBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureBase.h; path = ../Classes/TextureBase.h; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -343,6 +346,8 @@
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
+				316B7E8B1A2A0B840064C28A /* TextureBase.cpp */,
+				316B7E8C1A2A0B840064C28A /* TextureBase.h */,
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
 			);
 			name = Classes;
@@ -680,6 +685,7 @@
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
+				316B7E8D1A2A0B840064C28A /* TextureBase.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

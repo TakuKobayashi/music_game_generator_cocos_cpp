@@ -3,6 +3,8 @@
 
 #include "cocos2d.h"
 
+#include "TextureBase.h"
+
 class HelloWorld : public cocos2d::Layer
 {
 public:
