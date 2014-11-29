@@ -78,14 +78,22 @@ bool HelloWorld::init()
     
     CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("adventurers.wav", true);
 
+    auto fileUtils = CCFileUtils::sharedFileUtils();
+    std::string path = fileUtils->fullPathForFilename("adventurers.mp3");
+    
+    std::string param_key = "audiofile=@";
+    param_key += path;
+    CCLOG("%s", param_key.c_str());
     
     HttpRequest* request = new HttpRequest();
-    request->setUrl("http://www.yahoo.co.jp");
-    request->setRequestType(HttpRequest::Type::GET);
+    request->setUrl("http://devapi.gracenote.com/v1/timeline/");
+    request->setRequestData(param_key.c_str(), strlen(param_key.c_str()));
+    request->setRequestType(HttpRequest::Type::POST);
     request->setResponseCallback([this](HttpClient* client, HttpResponse* response) {
         if (!response) {
             return;
         }
+        CCLOG("%s", CCFileUtils::sharedFileUtils()->getWritablePath().c_str());
         
         if (0 != std::strlen(response->getHttpRequest()->getTag())) {
             CCLOG("%s completed", response->getHttpRequest()->getTag());
