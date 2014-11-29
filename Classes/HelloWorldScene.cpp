@@ -75,8 +75,9 @@ bool HelloWorld::init()
 
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
-    
-    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("adventurers.wav", true);
+
+    auto music = Music::create("adventurers.mp3");
+    music->play();
 
     /*
     auto fileUtils = CCFileUtils::sharedFileUtils();

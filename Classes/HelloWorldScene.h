@@ -8,6 +8,7 @@
 #include "StaticTexture.h"
 #include "RailTexture.h"
 #include "PopupTexture.h"
+#include "Music.h"
 
 class HelloWorld : public cocos2d::Layer
 {
