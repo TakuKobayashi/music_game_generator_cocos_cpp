@@ -9,10 +9,12 @@
 #include "Music.h"
 
 USING_NS_CC;
+
 using namespace experimental;
 
-Music::Music(std::string fileName) : mFilename(fileName)
+Music::Music(std::string fileName)
 {
+    mFilename = fileName;
 }
 
 Music* Music::create(std::string fileName)

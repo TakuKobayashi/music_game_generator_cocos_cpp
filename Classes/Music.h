@@ -15,7 +15,6 @@
 class Music{
 public:
     Music(std::string fileName); //コンストラクタ
-    virtual bool init(); //初期化処理
     static Music* create(std::string fileName);
     void play();
     void stop();
