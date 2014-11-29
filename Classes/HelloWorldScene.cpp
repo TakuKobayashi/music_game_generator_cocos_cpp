@@ -1,5 +1,8 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
+#include "network/HttpClient.h"
+
+using namespace cocos2d::network;
 
 USING_NS_CC;
 
@@ -75,6 +78,39 @@ bool HelloWorld::init()
     
     CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("adventurers.wav", true);
 
+    
+    HttpRequest* request = new HttpRequest();
+    request->setUrl("http://www.yahoo.co.jp");
+    request->setRequestType(HttpRequest::Type::GET);
+    request->setResponseCallback([this](HttpClient* client, HttpResponse* response) {
+        if (!response) {
+            return;
+        }
+        
+        if (0 != std::strlen(response->getHttpRequest()->getTag())) {
+            CCLOG("%s completed", response->getHttpRequest()->getTag());
+        }
+        
+        long statusCode = response->getResponseCode();
+        auto statusString = StringUtils::format("HTTP Status Code: %ld, tag = %s", statusCode, response->getHttpRequest()->getTag());
+        CCLOG("response code: %ld", statusCode);
+        
+        if (!response->isSucceed()) {
+            CCLOG("response failed");
+            CCLOG("error buffer: %s", response->getErrorBuffer());
+            return;
+        }
+        
+        // dropbox/json11 dump data
+        std::string responseString(response->getResponseData()->begin(), response->getResponseData()->end());
+        CCLOG("response = %s", responseString.c_str());
+    });
+    
+    request->setTag("GET test1");
+    HttpClient::getInstance()->send(request);
+    request->release();
+    
+    
     return true;
 }
 
