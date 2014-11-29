@@ -1,12 +1,10 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8)
 
 set(APP_NAME MyGame)
 project (${APP_NAME})
 
-include(cocos2d/build/BuildHelpers.CMakeLists.txt)
+include(cocos2d/cmake/BuildHelpers.CMakeLists.txt)
 
-option(USE_CHIPMUNK "Use chipmunk for physics library" ON)
-option(USE_BOX2D "Use box2d for physics library" OFF)
 option(DEBUG_MODE "Debug or release?" ON)
 
 if(DEBUG_MODE)
@@ -22,30 +20,19 @@ if (MSVC)
 	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D_CRT_SECURE_NO_WARNINGS")
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_CRT_SECURE_NO_WARNINGS")
 
+elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+  set(CMAKE_C_FLAGS_DEBUG "-g -Wall -DCOCOS2D_DEBUG=1")
+  set(CMAKE_CXX_FLAGS_DEBUG ${CMAKE_C_FLAGS_DEBUG})
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fno-exceptions -std=c99")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-exceptions -std=c++11 -stdlib=libc++ -Wno-deprecated-declarations -Wno-reorder")
+
 elseif (CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
 	set(CMAKE_C_FLAGS_DEBUG "-g -Wall -DCOCOS2D_DEBUG=1")
 	set(CMAKE_CXX_FLAGS_DEBUG ${CMAKE_C_FLAGS_DEBUG})
 
 	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wno-deprecated-declarations -Wno-reorder")
 endif()
-
-if(USE_CHIPMUNK)
-  message("Using chipmunk ...")
-  add_definitions(-DCC_ENABLE_CHIPMUNK_INTEGRATION=1)
-  if(UNIX) # assuming linux
-    add_definitions(-DLINUX )
-  endif()
-elseif(USE_BOX2D)
-  message("Using box2d ...")
-  add_definitions(-DCC_ENABLE_BOX2D_INTEGRATION=1)
-  if(UNIX) # assuming linux
-    add_definitions(-DLINUX )
-  endif()
-else(USE_CHIPMUNK)
-  message(FATAL_ERROR "Must choose a physics library.")
-endif(USE_CHIPMUNK)
 
 # architecture
 if ( CMAKE_SIZEOF_VOID_P EQUAL 8 )
@@ -54,7 +41,34 @@ else()
 set(ARCH_DIR "32-bit")
 endif()
 
-if( UNIX ) #assume linux
+if( APPLE AND IOS )
+include_directories(Classes)
+set(GAME_SRC
+  proj.ios_mac/ios/main.m
+  proj.ios_mac/ios/RootViewController.mm
+  proj.ios_mac/ios/AppController.mm
+  Classes/AppDelegate.cpp
+  Classes/HelloWorldScene.cpp
+)
+set(GAME_HEADERS
+  Classes/AppDelegate.h
+  Classes/HelloWorldScene.h
+  proj.ios_mac/ios/RootViewController.h
+  proj.ios_mac/ios/AppController.h
+)
+elseif(APPLE) #desktop
+include_directories(Classes)
+include(Classes/CMakeLists.txt)
+set(GAME_SRC
+  proj.ios_mac/mac/main.cpp
+  Classes/AppDelegate.cpp
+  Classes/HelloWorldScene.cpp
+)
+set(GAME_HEADERS
+  Classes/AppDelegate.h
+  Classes/HelloWorldScene.h
+)
+elseif( UNIX AND NOT APPLE) #assume linux
 set(GAME_SRC
   proj.linux/main.cpp
   Classes/AppDelegate.cpp
@@ -138,6 +152,7 @@ include_directories(
   ${COCOS2D_ROOT}/extensions
   ${COCOS2D_ROOT}/external
   ${COCOS2D_ROOT}/external/edtaa3func
+  ${COCOS2D_ROOT}/external/chipmunk/include/chipmunk
   ${COCOS2D_ROOT}/external/jpeg/include/linux
   ${COCOS2D_ROOT}/external/tiff/include/linux
   ${COCOS2D_ROOT}/external/webp/include/linux
@@ -149,7 +164,61 @@ include_directories(
   ${COCOS2D_ROOT}/external/linux-specific/fmod/include/${ARCH_DIR}
   ${COCOS2D_ROOT}/external/xxhash
 )
+elseif(APPLE AND IOS)
+include_directories(
+  /usr/local/include/GLFW
+  /usr/include/GLFW
+  ${COCOS2D_ROOT}
+  ${COCOS2D_ROOT}/cocos
+  ${COCOS2D_ROOT}/cocos/audio/include
+  ${COCOS2D_ROOT}/cocos/platform
+  ${COCOS2D_ROOT}/cocos/platform/ios
+  ${COCOS2D_ROOT}/cocos/editor-support
+  ${COCOS2D_ROOT}/extensions
+  ${COCOS2D_ROOT}/external
+  ${COCOS2D_ROOT}/external/edtaa3func
+  ${COCOS2D_ROOT}/external/chipmunk/include/chipmunk
+  ${COCOS2D_ROOT}/external/jpeg/include/ios
+  ${COCOS2D_ROOT}/external/tiff/include/ios
+  ${COCOS2D_ROOT}/external/webp/include/ios
+  ${COCOS2D_ROOT}/external/tinyxml2
+  ${COCOS2D_ROOT}/external/unzip
+  ${COCOS2D_ROOT}/external/freetype2/include/ios
+  ${COCOS2D_ROOT}/external/websockets/include/ios
+  ${COCOS2D_ROOT}/external/spidermonkey/include/liniosux
+  ${COCOS2D_ROOT}/external/xxhash
+)
+elseif(APPLE)
+include_directories(
+  /usr/local/include/GLFW
+  /usr/include/GLFW
+  ${COCOS2D_ROOT}
+  ${COCOS2D_ROOT}/cocos
+  ${COCOS2D_ROOT}/cocos/audio/include
+  ${COCOS2D_ROOT}/cocos/platform
+  ${COCOS2D_ROOT}/cocos/platform/mac
+  ${COCOS2D_ROOT}/cocos/editor-support
+  ${COCOS2D_ROOT}/extensions
+  ${COCOS2D_ROOT}/external
+  ${COCOS2D_ROOT}/external/edtaa3func
+  ${COCOS2D_ROOT}/external/chipmunk/include/chipmunk
+  ${COCOS2D_ROOT}/external/jpeg/include/mac
+  ${COCOS2D_ROOT}/external/tiff/include/mac
+  ${COCOS2D_ROOT}/external/webp/include/mac
+  ${COCOS2D_ROOT}/external/tinyxml2
+  ${COCOS2D_ROOT}/external/unzip
+  ${COCOS2D_ROOT}/external/freetype2/include/mac
+  ${COCOS2D_ROOT}/external/websockets/include/mac
+  ${COCOS2D_ROOT}/external/spidermonkey/include/liniosux
+  ${COCOS2D_ROOT}/external/xxhash
+)
+endif()
 
+if(NOT APPLE)
+ADD_DEFINITIONS(-DLINUX)
+endif()
+
+if(LINUX)
 link_directories(
   /usr/local/lib
   ${COCOS2D_ROOT}/external/jpeg/prebuilt/linux/${ARCH_DIR}
@@ -159,77 +228,60 @@ link_directories(
   ${COCOS2D_ROOT}/external/websockets/prebuilt/linux/${ARCH_DIR}
   ${COCOS2D_ROOT}/external/spidermonkey/prebuilt/linux/${ARCH_DIR}
   ${COCOS2D_ROOT}/external/linux-specific/fmod/prebuilt/${ARCH_DIR}
+  ${COCOS2D_ROOT}/external/chipmunk/prebuilt/linux/${ARCH_DIR}
+)
+elseif(APPLE AND IOS)
+link_directories(
+  /usr/local/lib
+    ${COCOS2D_ROOT}/external/jpeg/prebuilt/ios
+    ${COCOS2D_ROOT}/external/tiff/prebuilt/ios
+    ${COCOS2D_ROOT}/external/webp/prebuilt/ios
+    ${COCOS2D_ROOT}/external/freetype2/prebuilt/ios
+    ${COCOS2D_ROOT}/external/websockets/prebuilt/ios
+    ${COCOS2D_ROOT}/external/chipmunk/prebuilt/ios
+)
+elseif(APPLE)
+if(IOS)
+link_directories(
+/usr/local/lib
+  ${COCOS2D_ROOT}/external/jpeg/prebuilt/ios
+  ${COCOS2D_ROOT}/external/tiff/prebuilt/ios
+  ${COCOS2D_ROOT}/external/webp/prebuilt/ios
+  ${COCOS2D_ROOT}/external/freetype2/prebuilt/ios
+  ${COCOS2D_ROOT}/external/websockets/prebuilt/ios
+  ${COCOS2D_ROOT}/external/chipmunk/prebuilt/ios
+)
+else()
+link_directories(
+/usr/local/lib
+  ${COCOS2D_ROOT}/external/jpeg/prebuilt/mac
+  ${COCOS2D_ROOT}/external/tiff/prebuilt/mac
+  ${COCOS2D_ROOT}/external/webp/prebuilt/mac
+  ${COCOS2D_ROOT}/external/freetype2/prebuilt/mac
+  ${COCOS2D_ROOT}/external/websockets/prebuilt/mac
+  ${COCOS2D_ROOT}/external/chipmunk/prebuilt/mac
 )
 endif()
-
-if(USE_CHIPMUNK)
-
-	include_directories(${COCOS2D_ROOT}/external/chipmunk/include/chipmunk)
-	# chipmunk library
-	add_subdirectory(${COCOS2D_ROOT}/external/chipmunk/src)
 endif()
 
-if(USE_BOX2D)
-	# box2d library
-	add_subdirectory(${COCOS2D_ROOT}/external/Box2D)
-endif()
-
-# unzip library
+# build for 3rd party libraries
+if(LINUX OR APPLE)
+add_subdirectory(${COCOS2D_ROOT}/external/Box2D)
 add_subdirectory(${COCOS2D_ROOT}/external/unzip)
-
-# tinyxml2 library
-add_subdirectory(${COCOS2D_ROOT}/external/tinyxml2)
-
-# audio
-add_subdirectory(${COCOS2D_ROOT}/cocos/audio)
-
-# xxhash library
 add_subdirectory(${COCOS2D_ROOT}/external/xxhash)
+add_subdirectory(${COCOS2D_ROOT}/external/tinyxml2)
+endif()
 
-# cocos2d
+# libcocos2d
 add_subdirectory(${COCOS2D_ROOT}/cocos)
 
-# extensions
-add_subdirectory(${COCOS2D_ROOT}/extensions)
-
-## Editor Support
-
-# spine
-add_subdirectory(${COCOS2D_ROOT}/cocos/editor-support/spine)
-
-# cocosbuilder
-add_subdirectory(${COCOS2D_ROOT}/cocos/editor-support/cocosbuilder)
-
-# cocostudio
-add_subdirectory(${COCOS2D_ROOT}/cocos/editor-support/cocostudio)
-
-if ( WIN32 )
-	# add the executable
-	add_executable(${APP_NAME}
-	  WIN32
-	  ${GAME_SRC}
-	)
+if(GAME_HEADERS)
+add_executable(${APP_NAME} ${GAME_SRC} ${GAME_HEADERS})
 else()
-	# add the executable
-	add_executable(${APP_NAME}
-	  ${GAME_SRC}
-	)
+add_executable(${APP_NAME} ${GAME_SRC})
 endif()
 
-if ( CMAKE_SIZEOF_VOID_P EQUAL 8 )
-set(FMOD_LIB "fmodex64")
-else()
-set(FMOD_LIB "fmodex")
-endif()
-
-target_link_libraries(${APP_NAME}
-  spine
-  cocostudio
-  cocosbuilder
-  extensions
-  audio
-  cocos2d
-  )
+target_link_libraries(${APP_NAME} cocos2d)
 
 set(APP_BIN_DIR "${CMAKE_BINARY_DIR}/bin")
 
