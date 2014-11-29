@@ -28,6 +28,11 @@
 		316B7E761A29B17A0064C28A /* adventurers.wav in Resources */ = {isa = PBXBuildFile; fileRef = 316B7E751A29B17A0064C28A /* adventurers.wav */; };
 		316B7E781A29B9C30064C28A /* adventurers.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 316B7E771A29B9C30064C28A /* adventurers.mp3 */; };
 		316B7E8D1A2A0B840064C28A /* TextureBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316B7E8B1A2A0B840064C28A /* TextureBase.cpp */; };
+		316B7E961A2A1D140064C28A /* BallTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316B7E941A2A1D140064C28A /* BallTexture.cpp */; };
+		316B7E991A2A24C30064C28A /* TapButtonTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316B7E971A2A24C30064C28A /* TapButtonTexture.cpp */; };
+		316B7E9C1A2A254D0064C28A /* RailTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316B7E9A1A2A254D0064C28A /* RailTexture.cpp */; };
+		316B7E9F1A2A25920064C28A /* StaticTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316B7E9D1A2A25920064C28A /* StaticTexture.cpp */; };
+		316B7EA21A2A25D60064C28A /* PopupTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 316B7EA01A2A25D60064C28A /* PopupTexture.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -235,6 +240,16 @@
 		316B7E771A29B9C30064C28A /* adventurers.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = adventurers.mp3; sourceTree = "<group>"; };
 		316B7E8B1A2A0B840064C28A /* TextureBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextureBase.cpp; path = ../Classes/TextureBase.cpp; sourceTree = "<group>"; };
 		316B7E8C1A2A0B840064C28A /* TextureBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureBase.h; path = ../Classes/TextureBase.h; sourceTree = "<group>"; };
+		316B7E941A2A1D140064C28A /* BallTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BallTexture.cpp; path = ../Classes/BallTexture.cpp; sourceTree = "<group>"; };
+		316B7E951A2A1D140064C28A /* BallTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BallTexture.h; path = ../Classes/BallTexture.h; sourceTree = "<group>"; };
+		316B7E971A2A24C30064C28A /* TapButtonTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TapButtonTexture.cpp; path = ../Classes/TapButtonTexture.cpp; sourceTree = "<group>"; };
+		316B7E981A2A24C30064C28A /* TapButtonTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TapButtonTexture.h; path = ../Classes/TapButtonTexture.h; sourceTree = "<group>"; };
+		316B7E9A1A2A254D0064C28A /* RailTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RailTexture.cpp; path = ../Classes/RailTexture.cpp; sourceTree = "<group>"; };
+		316B7E9B1A2A254D0064C28A /* RailTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RailTexture.h; path = ../Classes/RailTexture.h; sourceTree = "<group>"; };
+		316B7E9D1A2A25920064C28A /* StaticTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StaticTexture.cpp; path = ../Classes/StaticTexture.cpp; sourceTree = "<group>"; };
+		316B7E9E1A2A25920064C28A /* StaticTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StaticTexture.h; path = ../Classes/StaticTexture.h; sourceTree = "<group>"; };
+		316B7EA01A2A25D60064C28A /* PopupTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PopupTexture.cpp; path = ../Classes/PopupTexture.cpp; sourceTree = "<group>"; };
+		316B7EA11A2A25D60064C28A /* PopupTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopupTexture.h; path = ../Classes/PopupTexture.h; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -349,6 +364,16 @@
 				316B7E8B1A2A0B840064C28A /* TextureBase.cpp */,
 				316B7E8C1A2A0B840064C28A /* TextureBase.h */,
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
+				316B7E941A2A1D140064C28A /* BallTexture.cpp */,
+				316B7E951A2A1D140064C28A /* BallTexture.h */,
+				316B7E971A2A24C30064C28A /* TapButtonTexture.cpp */,
+				316B7E981A2A24C30064C28A /* TapButtonTexture.h */,
+				316B7E9A1A2A254D0064C28A /* RailTexture.cpp */,
+				316B7E9B1A2A254D0064C28A /* RailTexture.h */,
+				316B7E9D1A2A25920064C28A /* StaticTexture.cpp */,
+				316B7E9E1A2A25920064C28A /* StaticTexture.h */,
+				316B7EA01A2A25D60064C28A /* PopupTexture.cpp */,
+				316B7EA11A2A25D60064C28A /* PopupTexture.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -680,12 +705,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				316B7E961A2A1D140064C28A /* BallTexture.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
+				316B7E9C1A2A254D0064C28A /* RailTexture.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
 				316B7E8D1A2A0B840064C28A /* TextureBase.cpp in Sources */,
+				316B7E991A2A24C30064C28A /* TapButtonTexture.cpp in Sources */,
+				316B7E9F1A2A25920064C28A /* StaticTexture.cpp in Sources */,
+				316B7EA21A2A25D60064C28A /* PopupTexture.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

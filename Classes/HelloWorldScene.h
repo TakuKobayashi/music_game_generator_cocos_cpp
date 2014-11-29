@@ -3,7 +3,11 @@
 
 #include "cocos2d.h"
 
-#include "TextureBase.h"
+#include "BallTexture.h"
+#include "TapButtonTexture.h"
+#include "StaticTexture.h"
+#include "RailTexture.h"
+#include "PopupTexture.h"
 
 class HelloWorld : public cocos2d::Layer
 {
