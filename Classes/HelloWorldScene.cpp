@@ -30,8 +30,8 @@ bool HelloWorld::init()
     {
         return false;
     }
-    cocos2d::Vector<BallTexture*> mBallLayer = cocos2d::Vector<BallTexture*>();
-    cocos2d::Map<int, Music*> mMusicMap = cocos2d::Map<int, Music*>();
+    mBallLayer = cocos2d::Vector<BallTexture*>();
+    mMusicMap = cocos2d::Map<int, Music*>();
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -152,9 +152,11 @@ void HelloWorld::stackMusic(std::string fileName){
     auto music = Music::create(fileName);
     music->play();
     mMusicMap.insert(music->getMusicId(), music);
+    
+    auto tapButtonTexture = TapButtonTexture::create("normal_maru.png");
+    tapButtonTexture->setTag(music->getMusicId());
+    tapButtonTexture->setMusicId(music->getMusicId());
 }
-
-
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {

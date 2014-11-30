@@ -1,6 +1,7 @@
 #ifndef __HELLOWORLD_SCENE_H__
 #define __HELLOWORLD_SCENE_H__
 
+#include <vector>
 #include "cocos2d.h"
 
 #include "BallTexture.h"
