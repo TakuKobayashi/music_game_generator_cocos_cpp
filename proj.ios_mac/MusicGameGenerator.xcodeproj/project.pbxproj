@@ -47,6 +47,7 @@
 		316B7F5B1A2A818A0064C28A /* smua_pro_finish_synth_bass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 316B7F561A2A818A0064C28A /* smua_pro_finish_synth_bass.mp3 */; };
 		316B7F5C1A2A818A0064C28A /* smua_pro_finish_vocal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 316B7F571A2A818A0064C28A /* smua_pro_finish_vocal.mp3 */; };
 		316B7F5D1A2A818A0064C28A /* smua_pro_finish.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 316B7F581A2A818A0064C28A /* smua_pro_finish.mp3 */; };
+		316B7F5F1A2ABA1F0064C28A /* graphpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 316B7F5E1A2ABA1F0064C28A /* graphpaper.png */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -174,6 +175,7 @@
 		316B7F561A2A818A0064C28A /* smua_pro_finish_synth_bass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = smua_pro_finish_synth_bass.mp3; sourceTree = "<group>"; };
 		316B7F571A2A818A0064C28A /* smua_pro_finish_vocal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = smua_pro_finish_vocal.mp3; sourceTree = "<group>"; };
 		316B7F581A2A818A0064C28A /* smua_pro_finish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = smua_pro_finish.mp3; sourceTree = "<group>"; };
+		316B7F5E1A2ABA1F0064C28A /* graphpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graphpaper.png; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -399,6 +401,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				316B7F5E1A2ABA1F0064C28A /* graphpaper.png */,
 				316B7F261A2A7F630064C28A /* bad.png */,
 				316B7F271A2A7F630064C28A /* bass_maru.png */,
 				316B7F281A2A7F630064C28A /* bass.png */,
@@ -540,6 +543,7 @@
 				316B7F5B1A2A818A0064C28A /* smua_pro_finish_synth_bass.mp3 in Resources */,
 				316B7F481A2A7F630064C28A /* strings.png in Resources */,
 				316B7F461A2A7F630064C28A /* sax.png in Resources */,
+				316B7F5F1A2ABA1F0064C28A /* graphpaper.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				316B7F5D1A2A818A0064C28A /* smua_pro_finish.mp3 in Resources */,
 				316B7F471A2A7F630064C28A /* string_maru.png in Resources */,

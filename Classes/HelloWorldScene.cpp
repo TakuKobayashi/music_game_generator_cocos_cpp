@@ -73,8 +73,11 @@ bool HelloWorld::init()
 
     // add the label as a child to this layer
     this->addChild(label, 1);
-
     
+    auto backgroundTexture = StaticTexture::create("graphpaper.png");
+    backgroundTexture->setPosition(backgroundTexture->getContentSize()/2);
+    this->addChild(backgroundTexture, 0);
+
     auto micTexture = StaticTexture::create("mic.png");
     Size size = micTexture->getContentSize();
     Vec2 point = Vec2(size.width / 2, visibleSize.height - size.height / 2);
