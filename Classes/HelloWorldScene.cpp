@@ -74,14 +74,27 @@ bool HelloWorld::init()
     // add the label as a child to this layer
     this->addChild(label, 1);
 
-    // add "HelloWorld" splash screen"
-    auto sprite = BallTexture::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-    // add the sprite as a child to this layer
-    this->addChild(sprite, 0);
+    
+    auto micTexture = StaticTexture::create("mic.png");
+    Size size = micTexture->getContentSize();
+    Vec2 point = Vec2(size.width / 2, visibleSize.height - size.height / 2);
+    micTexture->setPosition(point);
+    this->addChild(micTexture, 1);
+    
+    auto guitarTexture = StaticTexture::create("guitar.png");
+    point.y -= guitarTexture->getContentSize().height;
+    guitarTexture->setPosition(point);
+    this->addChild(guitarTexture, 1);
+    
+    auto bassTexture = StaticTexture::create("bass.png");
+    point.y -= bassTexture->getContentSize().height;
+    bassTexture->setPosition(point);
+    this->addChild(bassTexture, 1);
+    
+    auto drumTexture = StaticTexture::create("drum.png");
+    point.y -= guitarTexture->getContentSize().height;
+    drumTexture->setPosition(point);
+    this->addChild(drumTexture, 1);
 
 
     /*
@@ -140,6 +153,8 @@ void HelloWorld::stackMusic(std::string fileName){
     music->play();
     mMusicMap.insert(music->getMusicId(), music);
 }
+
+
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
