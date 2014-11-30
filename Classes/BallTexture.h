@@ -13,7 +13,16 @@
 #include "TextureBase.h"
 
 class BallTexture : public TextureBase{
-
+public:
+    BallTexture(std::string fileName) : TextureBase(fileName){
+        
+    }; //コンストラクタ
+    void setMusicId(int musicId);
+    static BallTexture* create(std::string fileName);
+private:
+    int mMusicId;
+protected:
+    std::string mFilename;
 };
 
 #endif /* defined(__MusicGameGenerator__BallTexture__) */

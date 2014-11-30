@@ -172,6 +172,7 @@ bool HelloWorld::init()
     listener->onTouchesEnded = CC_CALLBACK_2(HelloWorld::onTouchesEnded, this);
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     
+    scheduleUpdate();
     return true;
 }
 
@@ -185,6 +186,7 @@ void HelloWorld::onTouchesBegan(const std::vector<cocos2d::Touch *> &touches, co
         for(int i = 0;i < ids.size();++i){
             auto button = this->getChildByTag(ids[i]);
             cocos2d::Vec2 position = button->getPosition();
+            cocos2d::Size size = button->getContentSize();
             if(location.x < (position.x + size.width) &&
             (position.x + size.width) < location.x &&
             location.y < (position.y + size.height) &&
@@ -213,7 +215,17 @@ void HelloWorld::onTouchesEnded(const std::vector<cocos2d::Touch *> &touches, co
 }
 
 void HelloWorld::update(float dt){
-
+    std::vector<int> ids = mMusicMap.keys();
+    for(int i = 0;i < ids.size();++i){
+        auto music = mMusicMap.at(ids[i]);
+        CCLOG("%f", music->getCurrentTime());
+        if(music->getCurrentTime() > 3){
+            auto ball = BallTexture::create("right_maru.png");
+            auto move  = MoveTo::create(3, Point(100,100));
+            ball->runAction(move);
+            addChild(ball, 1);
+        }
+    }
 }
 
 int HelloWorld::stackMusic(std::string fileName){
