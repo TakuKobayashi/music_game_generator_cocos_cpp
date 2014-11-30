@@ -30,6 +30,8 @@ bool HelloWorld::init()
     {
         return false;
     }
+    cocos2d::Vector<BallTexture*> mBallLayer = cocos2d::Vector<BallTexture*>();
+    cocos2d::Map<int, Music*> mMusicMap = cocos2d::Map<int, Music*>();
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -51,6 +53,11 @@ bool HelloWorld::init()
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
+    
+    stackMusic("smua_pro_finish_vocal.mp3");
+    stackMusic("smua_pro_finish_guitar.mp3");
+    stackMusic("smua_pro_finish_synth_bass.mp3");
+    stackMusic("smua_pro_finish_drums.mp3");
 
     /////////////////////////////
     // 3. add your codes below...
@@ -76,8 +83,6 @@ bool HelloWorld::init()
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
 
-    auto music = Music::create("adventurers.mp3");
-    music->play();
 
     /*
     auto fileUtils = CCFileUtils::sharedFileUtils();
@@ -126,6 +131,15 @@ bool HelloWorld::init()
     return true;
 }
 
+void HelloWorld::update(float dt){
+
+}
+
+void HelloWorld::stackMusic(std::string fileName){
+    auto music = Music::create(fileName);
+    music->play();
+    mMusicMap.insert(music->getMusicId(), music);
+}
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {

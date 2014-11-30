@@ -30,6 +30,10 @@ void Music::play(){
     AudioEngine::setFinishCallback(mMusicId, CC_CALLBACK_2(Music::finishCallBack, this));
 }
 
+int Music::getMusicId(){
+    return mMusicId;
+}
+
 void Music::stop(){
     AudioEngine::stop(mMusicId);
     mPlaying = false;

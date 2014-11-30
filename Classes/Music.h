@@ -12,7 +12,7 @@
 #include "cocos2d.h"
 #include "audio/include/AudioEngine.h"
 
-class Music{
+class Music : public cocos2d::Ref{
 public:
     Music(std::string fileName); //コンストラクタ
     static Music* create(std::string fileName);
@@ -23,6 +23,7 @@ public:
     float getCurrentTime();
     void setVolume(float var);
     bool isPlaying();
+    int getMusicId();
 private:
     std::string mFilename;
     int mMusicId = -1;

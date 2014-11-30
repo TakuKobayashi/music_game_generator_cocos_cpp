@@ -22,8 +22,15 @@ public:
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
     
+    void update(float dt) override;
+    
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+private:
+    cocos2d::Vector<BallTexture*> mBallLayer;
+    cocos2d::Map<int, Music*> mMusicMap;
+    
+    void stackMusic(std::string fileName);
 };
 
 #endif // __HELLOWORLD_SCENE_H__
