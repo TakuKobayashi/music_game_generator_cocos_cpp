@@ -25,6 +25,11 @@ public:
     
     void update(float dt) override;
     
+    void onTouchesBegan(const std::vector<cocos2d::Touch *> &touches, cocos2d::Event *unused_event);
+    void onTouchesMoved(const std::vector<cocos2d::Touch *> &touches, cocos2d::Event *unused_event);
+    void onTouchesEnded(const std::vector<cocos2d::Touch *> &touches, cocos2d::Event *unused_event);
+    void onTouchesCancelled(const std::vector<cocos2d::Touch *> &touches, cocos2d::Event unused_event);
+    
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 private:

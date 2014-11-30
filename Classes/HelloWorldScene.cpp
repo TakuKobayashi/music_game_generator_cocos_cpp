@@ -165,8 +165,26 @@ bool HelloWorld::init()
     request->release();
     */
     
+    auto listener = EventListenerTouchAllAtOnce::create();
+    listener->setEnabled(true);
+    listener->onTouchesBegan = CC_CALLBACK_2(HelloWorld::onTouchesBegan, this);
+    listener->onTouchesMoved = CC_CALLBACK_2(HelloWorld::onTouchesMoved, this);
+    listener->onTouchesEnded = CC_CALLBACK_2(HelloWorld::onTouchesEnded, this);
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     
     return true;
+}
+
+void HelloWorld::onTouchesBegan(const std::vector<cocos2d::Touch *> &touches, cocos2d::Event *unused_event){
+    
+}
+
+void HelloWorld::onTouchesMoved(const std::vector<cocos2d::Touch *> &touches, cocos2d::Event *unused_event){
+    
+}
+
+void HelloWorld::onTouchesEnded(const std::vector<cocos2d::Touch *> &touches, cocos2d::Event *unused_event){
+    
 }
 
 void HelloWorld::update(float dt){
