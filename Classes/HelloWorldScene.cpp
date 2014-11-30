@@ -53,11 +53,6 @@ bool HelloWorld::init()
     auto menu = Menu::create(closeItem, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
-    
-    stackMusic("smua_pro_finish_vocal.mp3");
-    stackMusic("smua_pro_finish_guitar.mp3");
-    stackMusic("smua_pro_finish_synth_bass.mp3");
-    stackMusic("smua_pro_finish_drums.mp3");
 
     /////////////////////////////
     // 3. add your codes below...
@@ -84,21 +79,48 @@ bool HelloWorld::init()
     micTexture->setPosition(point);
     this->addChild(micTexture, 1);
     
+    int musicId = stackMusic("smua_pro_finish_vocal.mp3");
+    auto tapButtonTexture = TapButtonTexture::create("normal_maru.png");
+    tapButtonTexture->setTag(musicId);
+    tapButtonTexture->setMusicId(musicId);
+    tapButtonTexture->setPosition(Vec2(point.x + size.width / 2 + tapButtonTexture->getContentSize().width / 2, point.y));
+    this->addChild(tapButtonTexture, 2);
+    
     auto guitarTexture = StaticTexture::create("guitar.png");
     point.y -= guitarTexture->getContentSize().height;
     guitarTexture->setPosition(point);
     this->addChild(guitarTexture, 1);
+    
+    musicId = stackMusic("smua_pro_finish_guitar.mp3");
+    tapButtonTexture = TapButtonTexture::create("normal_maru.png");
+    tapButtonTexture->setTag(musicId);
+    tapButtonTexture->setMusicId(musicId);
+    tapButtonTexture->setPosition(Vec2(point.x + size.width / 2 + tapButtonTexture->getContentSize().width / 2, point.y));
+    this->addChild(tapButtonTexture, 2);
     
     auto bassTexture = StaticTexture::create("bass.png");
     point.y -= bassTexture->getContentSize().height;
     bassTexture->setPosition(point);
     this->addChild(bassTexture, 1);
     
+    musicId = stackMusic("smua_pro_finish_synth_bass.mp3");
+    tapButtonTexture = TapButtonTexture::create("normal_maru.png");
+    tapButtonTexture->setTag(musicId);
+    tapButtonTexture->setMusicId(musicId);
+    tapButtonTexture->setPosition(Vec2(point.x + size.width / 2 + tapButtonTexture->getContentSize().width / 2, point.y));
+    this->addChild(tapButtonTexture, 2);
+    
     auto drumTexture = StaticTexture::create("drum.png");
     point.y -= guitarTexture->getContentSize().height;
     drumTexture->setPosition(point);
     this->addChild(drumTexture, 1);
 
+    musicId = stackMusic("smua_pro_finish_drums.mp3");
+    tapButtonTexture = TapButtonTexture::create("normal_maru.png");
+    tapButtonTexture->setTag(musicId);
+    tapButtonTexture->setMusicId(musicId);
+    tapButtonTexture->setPosition(Vec2(point.x + size.width / 2 + tapButtonTexture->getContentSize().width / 2, point.y));
+    this->addChild(tapButtonTexture, 2);
 
     /*
     auto fileUtils = CCFileUtils::sharedFileUtils();
@@ -151,14 +173,11 @@ void HelloWorld::update(float dt){
 
 }
 
-void HelloWorld::stackMusic(std::string fileName){
+int HelloWorld::stackMusic(std::string fileName){
     auto music = Music::create(fileName);
     music->play();
     mMusicMap.insert(music->getMusicId(), music);
-    
-    auto tapButtonTexture = TapButtonTexture::create("normal_maru.png");
-    tapButtonTexture->setTag(music->getMusicId());
-    tapButtonTexture->setMusicId(music->getMusicId());
+    return music->getMusicId();
 }
 
 void HelloWorld::menuCloseCallback(Ref* pSender)

@@ -31,7 +31,7 @@ private:
     cocos2d::Vector<BallTexture*> mBallLayer;
     cocos2d::Map<int, Music*> mMusicMap;
     
-    void stackMusic(std::string fileName);
+    int stackMusic(std::string fileName);
 };
 
 #endif // __HELLOWORLD_SCENE_H__
