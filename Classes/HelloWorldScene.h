@@ -31,14 +31,16 @@ public:
     void onTouchesEnded(const std::vector<cocos2d::Touch *> &touches, cocos2d::Event *unused_event);
     void onTouchesCancelled(const std::vector<cocos2d::Touch *> &touches, cocos2d::Event unused_event);
     
-    Json* getBeatJson();
+    const static float getBeatJson[];
+    
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 private:
     cocos2d::Vector<BallTexture*> mBallLayer;
     cocos2d::Map<int, Music*> mMusicMap;
-    
+    float bValue = 0;
+
     int stackMusic(std::string fileName);
 };
 
