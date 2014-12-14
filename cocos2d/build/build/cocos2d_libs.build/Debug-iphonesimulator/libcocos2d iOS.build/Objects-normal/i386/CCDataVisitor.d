@@ -1,0 +1,25 @@
+dependencies: \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/cocos/base/CCDataVisitor.cpp \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/base/CCRef.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/platform/CCPlatformMacros.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/base/ccConfig.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/platform/CCPlatformConfig.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/platform/CCPlatformDefine.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/platform/ios/CCPlatformDefine-ios.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/deprecated/CCBool.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/base/CCDataVisitor.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/deprecated/CCInteger.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/base/CCConsole.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/base/ccMacros.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/platform/CCStdC.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/platform/ios/CCStdC-ios.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/base/ccRandom.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/platform/CCCommon.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/deprecated/CCFloat.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/deprecated/CCDouble.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/deprecated/CCString.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/deprecated/CCArray.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/base/ccCArray.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/deprecated/CCDictionary.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/base/uthash.h \
+  /workspace/cocos_workspace/MusicGameGenerator/cocos2d/build/../cocos/deprecated/CCSet.h
