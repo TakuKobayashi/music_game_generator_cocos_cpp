@@ -28,6 +28,10 @@ local.properties
 *.o
 *.o.d
 
+#Android Builds
+proj.android/assets/
+proj.android/libs/
+
 # Mac
 .DS_Store
 
